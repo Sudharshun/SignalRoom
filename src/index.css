@@ -1,0 +1,105 @@
+@import "tailwindcss";
+@import "litegraph.js/css/litegraph.css";
+
+@theme {
+  --font-sans: "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+
+  --color-canvas: #1a1d23;
+  --color-panel: #22262e;
+  --color-panel-elevated: #2a2f39;
+  --color-border: #3a4050;
+  --color-border-subtle: #2e3440;
+  --color-text: #e8eaed;
+  --color-text-muted: #9aa3b2;
+  --color-text-dim: #6b7385;
+
+  --color-sev1: #e11d48;
+  --color-sev1-soft: rgba(225, 29, 72, 0.15);
+
+  --color-hyp-unknown: #6b7385;
+  --color-hyp-investigating: #3b82f6;
+  --color-hyp-supported: #eab308;
+  --color-hyp-likely: #f97316;
+  --color-hyp-confirmed: #22c55e;
+  --color-hyp-ruled-out: #4b5563;
+
+  --color-evidence-support: #22c55e;
+  --color-evidence-counter: #ef4444;
+
+  --color-action-todo: #6b7385;
+  --color-action-progress: #3b82f6;
+  --color-action-blocked: #f97316;
+  --color-action-done: #22c55e;
+
+  --color-decision: #818cf8;
+  --color-accent: #38bdf8;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+  background: var(--color-canvas);
+  color: var(--color-text);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Soften LiteGraph default chrome for enterprise look */
+.litegraph {
+  font-family: var(--font-sans) !important;
+}
+
+.lgraphcanvas {
+  background: #171a20 !important;
+  image-rendering: auto;
+}
+
+/* Canvas container: allow soft compositing */
+.relative.min-w-0.flex-1.bg-canvas canvas {
+  display: block;
+  touch-action: none;
+}
+
+/* Hide default LiteGraph search/menu chrome we don't need */
+.litecontextmenu {
+  background: var(--color-panel-elevated) !important;
+  border: 1px solid var(--color-border) !important;
+  color: var(--color-text) !important;
+  font-family: var(--font-sans) !important;
+  border-radius: 8px !important;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.45) !important;
+}
+
+.litecontextmenu .litemenu-entry {
+  color: var(--color-text) !important;
+}
+
+.litecontextmenu .litemenu-entry:hover {
+  background: rgba(56, 189, 248, 0.12) !important;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #3a4050;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #4b5563;
+}
